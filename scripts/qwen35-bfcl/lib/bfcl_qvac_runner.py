@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import os
+from pathlib import Path
 from types import SimpleNamespace
 
 
@@ -60,6 +61,25 @@ def register_qvac_model(alias: str, display_name: str, is_fc_model: bool = True)
         is_fc_model=is_fc_model,
         underscore_to_dot=True,
     )
+
+
+def register_existing_qvac_models(args: argparse.Namespace, is_fc_model: bool) -> None:
+    from bfcl_eval.constants.eval_config import PROJECT_ROOT
+
+    for dirname in [args.result_dir, args.score_dir]:
+        path = Path(dirname)
+        if not path.is_absolute():
+            path = PROJECT_ROOT / path
+        if not path.exists():
+            continue
+
+        for model_dir in path.iterdir():
+            if model_dir.is_dir() and model_dir.name.startswith("local-qwen35-"):
+                register_qvac_model(
+                    alias=model_dir.name,
+                    display_name=model_dir.name,
+                    is_fc_model=is_fc_model,
+                )
 
 
 def generate(args: argparse.Namespace) -> None:
@@ -122,10 +142,12 @@ def main() -> None:
     os.environ["OPENAI_API_KEY"] = args.api_key
     os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
+    is_fc_model = not args.prompt_mode
+    register_existing_qvac_models(args, is_fc_model=is_fc_model)
     register_qvac_model(
         alias=args.model_alias,
         display_name=args.display_name,
-        is_fc_model=not args.prompt_mode,
+        is_fc_model=is_fc_model,
     )
 
     if args.command in {"generate", "generate-evaluate"}:

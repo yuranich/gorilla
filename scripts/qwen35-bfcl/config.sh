@@ -10,6 +10,13 @@ RUN_DIR="${RUN_DIR:-${SCRIPT_DIR}/.run}"
 CONFIG_DIR="${CONFIG_DIR:-${RUN_DIR}/configs}"
 LOG_DIR="${LOG_DIR:-${RUN_DIR}/logs}"
 
+if [[ -n "${HOME:-}" && -d "${HOME}/.local/bin" ]]; then
+  case ":${PATH}:" in
+    *":${HOME}/.local/bin:"*) ;;
+    *) export PATH="${HOME}/.local/bin:${PATH}" ;;
+  esac
+fi
+
 QVAC_HOST="${QVAC_HOST:-127.0.0.1}"
 QVAC_PORT="${QVAC_PORT:-11434}"
 QVAC_BASE_URL="${QVAC_BASE_URL:-http://${QVAC_HOST}:${QVAC_PORT}/v1}"
@@ -34,7 +41,9 @@ ALL_PRESETS=(
   "08b:nothink-vl"
   "08b:qvac-current"
   "2b:think"
+  "2b:think-vl-webdev"
   "2b:nothink"
+  "2b:nothink-vl"
   "2b:qvac-current"
   "4b:think"
   "4b:nothink"
@@ -52,6 +61,33 @@ safe_preset_name() {
 
 ensure_dirs() {
   mkdir -p "${RUN_DIR}" "${CONFIG_DIR}" "${LOG_DIR}"
+}
+
+describe_os() {
+  local kernel
+  local label
+  kernel="$(uname -s)"
+
+  case "${kernel}" in
+    Darwin)
+      if command -v sw_vers >/dev/null 2>&1; then
+        label="macOS $(sw_vers -productVersion)"
+      else
+        label="Darwin $(uname -r)"
+      fi
+      ;;
+    Linux)
+      label="Linux"
+      if [[ -r /etc/os-release ]]; then
+        label="$(. /etc/os-release && printf '%s' "${PRETTY_NAME:-Linux}")"
+      fi
+      ;;
+    *)
+      label="${kernel} $(uname -r)"
+      ;;
+  esac
+
+  printf '%s %s\n' "${label}" "$(uname -m)"
 }
 
 choose_python() {
@@ -84,6 +120,7 @@ load_preset() {
 
   REPEAT_PENALTY=""
   FREQUENCY_PENALTY=""
+  MIN_P=""
   REASONING_BUDGET=""
   MODEL_CONSTANT=""
 
@@ -148,7 +185,21 @@ load_preset() {
       TEMPERATURE="1.0"
       TOP_P="0.95"
       TOP_K="20"
+      MIN_P="0.0"
       PRESENCE_PENALTY="1.5"
+      REPEAT_PENALTY="1.0"
+      ENABLE_THINKING="true"
+      ;;
+    2b:think-vl-webdev)
+      HF_REPO="unsloth/Qwen3.5-2B-GGUF:Q4_K_M"
+      MODEL_CONSTANT="QWEN3_5_2B_MULTIMODAL_Q4_K_M"
+      MODEL_ALIAS="local-qwen35-2b-q4km-think-vl-webdev"
+      TEMPERATURE="0.6"
+      TOP_P="0.95"
+      TOP_K="20"
+      MIN_P="0.0"
+      PRESENCE_PENALTY="0.0"
+      REPEAT_PENALTY="1.0"
       ENABLE_THINKING="true"
       ;;
     2b:nothink|2b:nothink-text)
@@ -158,7 +209,21 @@ load_preset() {
       TEMPERATURE="1.0"
       TOP_P="1.0"
       TOP_K="20"
+      MIN_P="0.0"
       PRESENCE_PENALTY="2.0"
+      REPEAT_PENALTY="1.0"
+      ENABLE_THINKING="false"
+      ;;
+    2b:nothink-vl)
+      HF_REPO="unsloth/Qwen3.5-2B-GGUF:Q4_K_M"
+      MODEL_CONSTANT="QWEN3_5_2B_MULTIMODAL_Q4_K_M"
+      MODEL_ALIAS="local-qwen35-2b-q4km-nothink-vl"
+      TEMPERATURE="0.7"
+      TOP_P="0.80"
+      TOP_K="20"
+      MIN_P="0.0"
+      PRESENCE_PENALTY="1.5"
+      REPEAT_PENALTY="1.0"
       ENABLE_THINKING="false"
       ;;
     2b:qvac-current)
@@ -223,6 +288,6 @@ print_preset() {
   printf 'model_alias=%s\n' "${MODEL_ALIAS}"
   printf 'hf_repo=%s\n' "${HF_REPO}"
   printf 'model_constant=%s\n' "${MODEL_CONSTANT}"
-  printf 'temperature=%s top_p=%s top_k=%s presence_penalty=%s enable_thinking=%s\n' \
-    "${TEMPERATURE}" "${TOP_P}" "${TOP_K}" "${PRESENCE_PENALTY}" "${ENABLE_THINKING}"
+  printf 'temperature=%s top_p=%s top_k=%s min_p=%s presence_penalty=%s repetition_penalty=%s enable_thinking=%s\n' \
+    "${TEMPERATURE}" "${TOP_P}" "${TOP_K}" "${MIN_P}" "${PRESENCE_PENALTY}" "${REPEAT_PENALTY}" "${ENABLE_THINKING}"
 }

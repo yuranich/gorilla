@@ -18,7 +18,7 @@ status() {
 
 printf 'repo: %s\n' "${REPO_ROOT}"
 printf 'bfcl: %s\n' "${BFCL_DIR}"
-printf 'macos: %s %s\n' "$(sw_vers -productVersion)" "$(uname -m)"
+printf 'os: %s\n' "$(describe_os)"
 printf '\n'
 
 status "git" "command -v git"
