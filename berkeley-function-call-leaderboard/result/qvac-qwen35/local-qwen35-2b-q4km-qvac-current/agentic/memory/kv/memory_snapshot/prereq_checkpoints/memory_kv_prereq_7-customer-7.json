@@ -1,0 +1,14 @@
+{
+    "core_memory": {
+        "espresso_machine_order_intent": "User is ready to order an espresso machine with stainless-steel finish, preferring sleek modern models over standard drip coffee makers.",
+        "espresso_delivery_status": "User waiting for espresso machine delivery since past due date, anxious about package status and whereabouts of new machine.",
+        "espresso_machine_delivery_issue": "User is a 35-year-old freelance graphic designer from Seattle who received an espresso machine package that was delayed in delivery, but upon opening it found the machine damaged. They are hoping to resolve this issue with either a replacement or repair of the machine.",
+        "freelance_graphic_designer_checkin": "Michael is a 35-year-old freelance graphic designer from Seattle who's been stocking his kitchen with coffee products and is happy with how his espresso machine arrived dented but still uses it for latte art designs. He wants to check in about shipping details."
+    },
+    "archival_memory": {
+        "espresso_machine_order_intent": "User ready to order espresso machine with stainless-steel finish, preferring sleek modern models over standard drip coffee makers. Waiting since past due date for delivery, anxious about package status and whereabouts of new machine.",
+        "espresso_machine_delivery_issue": "User is a 35-year-old freelance graphic designer from Seattle who received an espresso machine package that was delayed in delivery, but upon opening it found the machine damaged. They are hoping to resolve this issue with either a replacement or repair of the machine.",
+        "new_kitchen_appliance_interests": "Michael is 35, a freelance graphic designer from Seattle who received an espresso machine package that was delayed in delivery but upon opening it found the machine damaged. He is excited to find out more about your new line of kitchen appliances beyond just coffee machines and wants to see if there\u2019s something he can add to his setup.",
+        "freelance_graphic_designer_checkin": "Michael is a freelance graphic designer from Seattle who's juggling multiple orders and wants to check in about shipping details."
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "core_memory": {
+        "next_id": 1,
+        "store": {
+            "0": "Patient has managed diabetes, hypertension, osteoarthritis, and hypothyroidism. Medications adjusted between these conditions. Keeps track of dosing and prescriptions. Doctor reviews meds every few months for adjustments needed."
+        }
+    },
+    "archival_memory": {
+        "next_id": 0,
+        "store": {}
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "core_memory": {
+        "espresso_machine_order_intent": "User is ready to order an espresso machine with stainless-steel finish, preferring sleek modern models over standard drip coffee makers.",
+        "espresso_delivery_status": "User waiting for espresso machine delivery since past due date, anxious about package status and whereabouts of new machine."
+    },
+    "archival_memory": {
+        "espresso_machine_order_intent": "User ready to order espresso machine with stainless-steel finish, preferring sleek modern models over standard drip coffee makers. Waiting since past due date for delivery, anxious about package status and whereabouts of new machine."
+    }
+}

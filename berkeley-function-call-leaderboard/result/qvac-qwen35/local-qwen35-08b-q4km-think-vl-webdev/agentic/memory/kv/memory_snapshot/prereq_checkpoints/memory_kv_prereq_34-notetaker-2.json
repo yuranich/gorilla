@@ -1,0 +1,11 @@
+{
+    "core_memory": {
+        "car_wash_vacuum_sunday": "Wash and vacuum on Sunday",
+        "check_tire_pressure": "Check tire pressure",
+        "refill_windshield_wiper_fluid": "Refill windshield wiper fluid",
+        "closet_organization": "Sort through closet\u2014donate old clothes",
+        "old_mail_shredting": "Shred old mail",
+        "pantry_restocking": "Restock pantry\u2014running low on rice and cereal"
+    },
+    "archival_memory": {}
+}

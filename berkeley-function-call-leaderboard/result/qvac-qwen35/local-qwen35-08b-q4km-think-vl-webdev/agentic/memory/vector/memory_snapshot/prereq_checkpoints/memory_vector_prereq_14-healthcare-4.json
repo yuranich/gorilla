@@ -1,0 +1,16 @@
+{
+    "core_memory": {
+        "next_id": 3,
+        "store": {
+            "0": "Living in Kansas means I need to be flexible. Some days I can walk outside, but other times I'm stuck inside due to freezing winters or storms. I'm a mid-50s person and do my best to stay active, eat right, and manage my stress through balance.",
+            "1": "For exercise, consistency is more important than intensity. Walking is my best friend for osteoarthritis and blood sugar management. I try to do light yoga a few times a week. On bad weather days, I use a stationary bike or do some at-home workouts. Nothing fancy, just enough to keep me moving.",
+            "2": "For hydration, I keep a big water bottle with me all day and drink herbal teas in the evening instead of coffee. Kansas summers can be brutal, so I make sure to drink even more water when it\u2019s hot outside."
+        }
+    },
+    "archival_memory": {
+        "next_id": 1,
+        "store": {
+            "0": "Patient in Kansas has been tracking medical test reports. Has used walking and light yoga for exercise to manage osteoarthritis and blood sugar. Keeps a big water bottle with her all day and drinks herbal teas in the evening instead of coffee. Kansas summers can be brutal, so she makes sure to drink even more water when it's hot outside. She has a history of diabetes and hypertension that requires regular check-ups. Her bloodwork had ups and downs but nothing too alarming. She keeps a close eye on her numbers so she can adjust her lifestyle as needed."
+        }
+    }
+}

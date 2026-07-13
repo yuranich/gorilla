@@ -1,0 +1,9 @@
+{
+    "core_memory": {
+        "espresso_machine_order_intent": "User is ready to order an espresso machine with stainless-steel finish, preferring sleek modern models over standard drip coffee makers."
+    },
+    "archival_memory": {
+        "coffee_grinder_recommendation": "User wants recommendations for coffee beans and grinder options. Prefers fresh grinding right before brewing(like a coffee purist). Considering high-end espresso machine investment but hesitant about additional expense. Looking for aesthetically compatible options.",
+        "customer_appreciation_note": "User appreciates detailed responses and personalized support, indicating they value thoroughness over speed."
+    }
+}
