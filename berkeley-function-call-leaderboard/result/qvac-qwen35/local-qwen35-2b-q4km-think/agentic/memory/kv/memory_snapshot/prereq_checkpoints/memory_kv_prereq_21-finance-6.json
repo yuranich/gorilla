@@ -1,0 +1,11 @@
+{
+    "core_memory": {
+        "mission_control": "The platform name your team calls for their system",
+        "lives_system": "The platform you use",
+        "anomaly_detection": "Custom algorithms for market anomaly detection",
+        "real_time_alerts": "Alerts used for detecting market movements"
+    },
+    "archival_memory": {
+        "create_your_own_luck": "People look at successful investors or entrepreneurs and think they were in the right place at the right time. But luck favors those who put themselves in positions where opportunity can find them. If you\u2019re waiting for the perfect deal, the perfect job, the perfect conditions\u2014you\u2019re going to be waiting forever. When I was younger, I used to reach out to industry leaders just to ask them one or two specific questions. Most never responded, but a few did. And those conversations opened doors I never would have had access to otherwise. You\u2019d be surprised how much you can gain just by being proactive."
+    }
+}

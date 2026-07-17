@@ -1,0 +1,9 @@
+{
+    "core_memory": {
+        "mission_control": "The platform name your team calls for their system",
+        "lives_system": "The platform you use",
+        "anomaly_detection": "Custom algorithms for market anomaly detection",
+        "real_time_alerts": "Alerts used for detecting market movements"
+    },
+    "archival_memory": {}
+}
