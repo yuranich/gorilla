@@ -11,7 +11,7 @@ bash scripts/qwen35-bfcl/00-check-env.sh
 bash scripts/qwen35-bfcl/01-install-user-deps.sh
 ```
 
-`01-install-user-deps.sh` creates `berkeley-function-call-leaderboard/.venv-qvac-bfcl`, installs BFCL editable dependencies, and installs `@qvac/cli` with npm. If the system npm global prefix is not writable, it falls back to the user prefix `~/.local` and later scripts add `~/.local/bin` to `PATH` when that directory exists. Set `QVAC_NPM_PREFIX=/custom/prefix` if you want a different npm install location. The install script also patches local QVAC 0.7.0 schema files so llama.cpp `min_p` can be used in preset model configs.
+`01-install-user-deps.sh` creates `berkeley-function-call-leaderboard/.venv-qvac-bfcl`, installs BFCL editable dependencies, and installs `@qvac/cli` with npm. If the system npm global prefix is not writable, it falls back to the user prefix `~/.local` and later scripts add `~/.local/bin` to `PATH` when that directory exists. Set `QVAC_NPM_PREFIX=/custom/prefix` if you want a different npm install location.
 
 ## One-Preset Flow
 

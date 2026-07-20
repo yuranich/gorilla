@@ -44,10 +44,6 @@ def main() -> None:
     if repeat_penalty is not None:
         model_config["repeat_penalty"] = repeat_penalty
 
-    min_p = maybe_number(os.getenv("MIN_P"))
-    if min_p is not None:
-        model_config["min_p"] = min_p
-
     frequency_penalty = maybe_number(os.getenv("FREQUENCY_PENALTY"))
     if frequency_penalty is not None:
         model_config["frequency_penalty"] = frequency_penalty

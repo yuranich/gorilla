@@ -56,7 +56,5 @@ if ! command -v qvac >/dev/null 2>&1; then
   die "qvac was installed but is not on PATH. Add ${npm_prefix}/bin to PATH and rerun this script."
 fi
 
-"${python_bin}" "${SCRIPT_DIR}/lib/patch_qvac_min_p.py"
-
 printf '\nInstalled BFCL dependencies in %s\n' "${VENV_DIR}"
 printf 'Run: bash %s/00-check-env.sh\n' "${SCRIPT_DIR}"
